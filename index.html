@@ -1,99 +1,202 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Super Bowl Snacks</title>
-    <link rel="stylesheet" href="index.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Foodiez - Discover & Order Food</title>
+  <link rel="stylesheet" href="index.css" />
 </head>
+
 <body>
-    <header class="navbar">
-        <div class="logo">Food <span>Network</span></div>
-        <nav class="nav-links">
-            <a href="#">Recipes</a>
-            <a href="#">Shows</a>
-            <a href="#">Chefs</a>
-            <a href="#">Trending</a>
-            <a href="#">Shop</a>
-            <a href="#">Sweepstakes</a>
-            <a href="#">What's on TV</a>
-        </nav>
-        <div class="search">
-            <input type="text" id="searchInput" placeholder="What are you looking for?">
-            <button id="searchButton">Search</button>
-        </div>
-    </header>
+  <!-- Navbar -->
+  <header class="navbar">
+    <div class="logo">🍴 Foodiez</div>
+    <nav class="nav-links">
+      <a href="#recipes">Recipes</a>
+      <a href="#order">Order</a>
+      <a href="#favorites">Favorites</a>
+      <a href="#about">About</a>
+      <button onclick="addToCart('Ree\'s Best Easter Dishes')">Add to Cart</button>
+    </nav>
+    <div class="nav-right">
+      <input type="text" placeholder="Search recipes or meals..." />
+      <button class="search-btn">🔍</button>
+      <button class="login-btn" onclick="openModal('login')">Login</button>
+      <button class="signup-btn" onclick="openModal('signup')">Sign Up</button>
+    </div>
+  </header>
 
-    <section class="banner">
-        <div class="banner-content">
-            <p>Start Your 7-Day Free Trial</p>
-            <button id="bannerButton" class="banner-button">Sign up now</button>
-        </div>
-    </section>
+  
 
-    <main class="main-content">
-        <img src="./images/img1.webp" alt="Super Bowl Snacks" class="featured-image">
-        <div class="title-container">
-            
-        </div>
-    </main>
+ 
+  
+  
+  <!-- Login Modal -->
+  <div id="loginModal" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="closeModal('login')">&times;</span>
+      <h2>Login</h2>
+      <input type="text" id="loginEmail" placeholder="Email" />
+      <input type="password" id="loginPassword" placeholder="Password" />
+      <button onclick="login()">Login</button>
+    </div>
+  </div>
+  
+  <!-- Signup Modal -->
+  <div id="signupModal" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="closeModal('signup')">&times;</span>
+      <h2>Sign Up</h2>
+      <input type="text" id="signupName" placeholder="Full Name" />
+      <input type="email" id="signupEmail" placeholder="Email" />
+      <input type="password" id="signupPassword" placeholder="Password" />
+      <button onclick="signup()">Sign Up</button>
+    </div>
+  </div>
+  
+
+  <!-- Hero Section -->
+  <!-- <section class="hero">
+    <img src="https://source.unsplash.com/1600x600/?food" alt="Delicious food" />
+    <div class="hero-text">
+      <h1>Discover Recipes. Order Meals. All in One Place.</h1>
+      <p>Deliciously simple. Welcome to Foodiez.</p>
+    </div>
+  </section> -->
+
+  <!-- Recipes Section --> 
+  <section id="recipes" class="section">
+    <h2>Popular Recipes</h2>
+    <div class="card-grid">
+      <div class="card">
+        <img src="./images/generative-ai-illustration-fried-chicken-plain-background_479694-15232.avif" alt="Chicken" />
+        <h3>Grilled Chicken</h3>
+        <p>Quick and easy grilled chicken for your next meal.</p>
+        <button onclick="saveRecipe('Grilled Chicken')">Save Recipe</button>
+      </div>
+      <div class="card">
+        <img src="./images/img29.jfif" alt="Pasta" />
+        <h3>Creamy Pasta</h3>
+        <p>A rich and creamy Italian pasta dish.</p>
+        <button onclick="saveRecipe('Creamy Pasta')">Save Recipe</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Order Section -->
+  <section id="order" class="section">
+    <h2>Order Meals</h2>
+    <div class="card-grid">
+      <div class="card">
+        <img src="./images/burger" alt="Burger" />
+        <h3>Cheeseburger Combo</h3>
+        <p>Order now and get it delivered hot and fresh!</p>
+        <button onclick="orderMeal('Cheeseburger Combo')">Order Now</button>
+      </div>
+      <div class="card">
+        <img src="./images/sushi" alt="Sushi" />
+        <h3>Fresh Sushi Platter</h3>
+        <p>Fresh, authentic, and delivered to your door.</p>
+        <button onclick="orderMeal('Fresh Sushi Platter')">Order Now</button>
+      </div>
+    </div>
+  </section>
+
+  <section class="recipe-section">
+    <h2>Perfect Potatoes</h2>
+    <div class="recipe-grid">
+      <div class="recipe-card">
+        <img src="./images/img5(1).webp" alt="The Best Cheesy Potatoes">
+        <p>The Best Cheesy Potatoes</p>
+      </div>
+      <div class="recipe-card">
+        <img src="./images/img6(1).webp" alt="Melting Potatoes">
+        <p>Melting Potatoes</p>
+      </div>
+      <div class="recipe-card">
+        <img src="./images/img7(1).webp" alt="Slow-Cooker Mashed Potatoes">
+        <p>Slow-Cooker Mashed Potatoes</p>
+      </div>
+      <div class="recipe-card">
+        <img src="./images/img8(1).webp" alt="Potato Salad">
+        <p>Potato Salad</p>
+      </div>
+    </div>
+  </section>
 
 
-    <main class="main-content">
-        <img src="" alt="Super Bowl Snacks" class="featured-image">
-        <div class="title-container">
-            <h1>Super Bowl Snacks That Will Carry You To Victory</h1>
-        </div>
-    </main>
-    
-    <section class="content-section">
-        <div class="content-grid">
-            <!-- First Card -->
-            <div class="card">
-                <img src="./images/img2.webp" alt="Chicken Wings" class="card-image">
-                <div class="card-text">
-                    <h3>FRIED, BAKED + GRILLED</h3>
-                    <p>Chicken Wing Recipes You’ll Want To Eat All the Time</p>
-                </div>
-            </div>
-            <!-- Second Card -->
-            <div class="card">
-                <img src="./images/img3.webp" alt="Kids Baking Championship" class="card-image">
-                <div class="card-text">
-                    <h3>NEW! KIDS BAKING CHAMPIONSHIP</h3>
-                    <p>Meet the Competitors<br>Tomorrow, 8|7c</p>
-                </div>
-            </div>
-            <!-- Third Card -->
-            <div class="card">
-                <img src="./images/img4.webp" alt="Tournament of Champions" class="card-image">
-                <div class="card-text">
-                    <h3>TOURNAMENT OF CHAMPIONS RETURNS MARCH 2</h3>
-                    <p>All the Details on Season 6</p>
-                </div>
-            </div>
-            <!-- Schedule Section -->
-            <div class="schedule-card">
-                <h3>SCHEDULE</h3>
-                <p>ON TONIGHT<br><strong>Beat Bobby Flay</strong><br>9pm | 8c</p>
-                <p>ON NOW<br><strong>Beat Bobby Flay</strong><br>2:30am | 1:30c</p>
-                <button class="live-button">Watch Live TV</button>
-                <p>UP NEXT<br><strong>Beat Bobby Flay</strong><br>3am | 2c</p>
-                <a href="#">See Full Schedule</a>
-            </div>
-        </div>
-    </section>
-    
-    <section class="desserts-section">
-        <h2>Decadent Chocolate Desserts</h2>
-        <div class="dessert-gallery">
-            <img src="./images/img5.webp" alt="Lava Cake">
-            <img src="./images/img6.webp" alt="Chocolate Strawberries">
-            <img src="./images/img7.webp" alt="Chocolate Mousse">
-            <img src="./images/img8.webp" alt="chocolate-cook"
-    
+  <section class="trending-section">
+    <div class="trending-container">
+      <div class="trending-img">
+        <img src="./images/img13.webp" alt="Trending Soup Dish">
+      </div>
+      <div class="trending-content">
+        <small>TRENDING NOW</small>
+        <h2>Surprising Protein Sources<br>To Add To Your Plate</h2>
+      </div>
+    </div>
+  </section>
 
 
-    <script src="index.js"></script>
+  <section class="tv-inspired-section">
+    <h2>Inspired By Your Favorite Shows</h2>
+    <div class="tv-cards">
+      <div class="tv-card">
+        <img src="./images/img30.webp" alt="Ree's Best Easter Dishes">
+        <p>Ree's Best Easter Dishes From The Pioneer Woman</p>
+      </div>
+      <div class="tv-card">
+        <img src="./images/img31.webp" alt="Molly Yeh's Best Holiday Recipes">
+        <p>Molly Yeh's Best Holiday Recipes</p>
+      </div>
+      <div class="tv-card">
+        <img src="./images/img32.webp" alt="Perfect Picnic Recipes From Kardea">
+        <p>Perfect Picnic Recipes From Kardea Brown</p>
+      </div>
+    </div>
+  </section>
+
+
+
+  <section class="magazine-subscription">
+    <div class="magazine-container">
+      <img src="./images/img33.webp" alt="Food Network Magazine Cover">
+      <div class="magazine-text">
+        <h5>The April/May Issue</h5>
+        <h2>Subscribe to Food Network Magazine Today</h2>
+      </div>
+    </div>
+  </section>
+
+  <footer class="site-footer">
+    <div class="footer-links">
+      <a href="https://www.foodnetwork.com/site/site-map">Site Map</a>
+      <a href="https://www.wbd.com/discovery-visitor-agreement/">Visitor Agreement</a>
+      <a href="https://www.wbdprivacy.com/policycenter/b2c/">AdChoices</a>
+      <a href="https://www.wbdprivacy.com/policycenter/b2c/">Privacy Policy</a>
+      <a href="https://www.foodnetwork.com/site/about-foodnetwork-com">About</a>
+      <a href="https://www.wbd.com/">Newsroom</a>
+      <a href="https://www.wbd.com/">Advertise</a>
+      <a href="https://help.foodnetwork.com/hc/en-us">Help</a>
+      <a href="http://www.tvguidelines.org/ratings.html">TV Ratings</a>
+      <a href="#">Online Closed Captioning</a>
+      <a href="#">Accessibility</a>
+      <a href="#">Newsletters</a>
+      <a href="#">Discovery, Inc.</a>
+      <a href="#">Do Not Sell or Share My Personal Information</a>
+    </div>
+    <div class="footer-bottom">
+      <span>International Editions</span>
+      <span>The Discovery Family of Networks</span>
+      <span>&copy; 2025 Warner Bros. Discovery, Inc. All rights reserved.</span>
+    </div>
+  </footer>
+  
+  
+
+
+  <script src="index.js"></script>
 </body>
+
 </html>

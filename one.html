@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Foodiez - Discover & Order Food</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    body {
+      background-color: #f8f8f8;
+      color: #333;
+    }
+
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 2rem;
+      background-color: #fff;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    .logo {
+      font-size: 1.5rem;
+      font-weight: bold;
+      color: #e4002b;
+    }
+
+    .nav-links a {
+      margin: 0 1rem;
+      text-decoration: none;
+      color: #333;
+      font-weight: 500;
+    }
+
+    .nav-links {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+    }
+
+    .nav-right {
+      display: flex;
+      gap: 0.5rem;
+      align-items: center;
+    }
+
+    .nav-right input {
+      padding: 0.4rem 0.6rem;
+      border-radius: 4px;
+      border: 1px solid #ccc;
+    }
+
+    .search-btn, .signup-btn {
+      padding: 0.4rem 1rem;
+      border: none;
+      border-radius: 20px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+
+    .search-btn {
+      background-color: #ddd;
+    }
+
+    .signup-btn {
+      background-color: #e4002b;
+      color: #fff;
+    }
+
+    .signup-btn:hover {
+      background-color: #c20025;
+    }
+
+    .hero {
+      position: relative;
+    }
+
+    .hero img {
+      width: 100%;
+      height: auto;
+      object-fit: cover;
+    }
+
+    .hero-text {
+      position: absolute;
+      top: 50%;
+      left: 5%;
+      transform: translateY(-50%);
+      background-color: rgba(255, 255, 255, 0.8);
+      padding: 1rem 2rem;
+      border-radius: 8px;
+    }
+
+    .section {
+      padding: 3rem 2rem;
+    }
+
+    .section h2 {
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .card {
+      background-color: white;
+      padding: 1rem;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+      text-align: center;
+    }
+
+    .card img {
+      width: 100%;
+      border-radius: 8px;
+      margin-bottom: 1rem;
+    }
+
+    .card button {
+      margin-top: 1rem;
+      padding: 0.5rem 1rem;
+      background-color: #e4002b;
+      color: #fff;
+      border: none;
+      border-radius: 20px;
+      cursor: pointer;
+    }
+
+    .card button:hover {
+      background-color: #c20025;
+    }
+
+    .footer {
+      text-align: center;
+      padding: 1.5rem;
+      background-color: #222;
+      color: #fff;
+      margin-top: 3rem;
+    }
+
+    @media (max-width: 768px) {
+      .nav-links {
+        display: none;
+      }
+
+      .hero-text {
+        width: 90%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        text-align: center;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Navbar -->
+  <header class="navbar">
+    <div class="logo">🍴 Foodiez</div>
+    <nav class="nav-links">
+      <a href="#recipes">Recipes</a>
+      <a href="#order">Order</a>
+      <a href="#favorites">Favorites</a>
+      <a href="#about">About</a>
+    </nav>
+    <div class="nav-right">
+      <input type="text" placeholder="Search recipes or meals...">
+      <button class="search-btn">🔍</button>
+      <button class="signup-btn">Sign Up</button>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <img src="https://source.unsplash.com/1600x600/?food" alt="Delicious food">
+    <div class="hero-text">
+      <h1>Discover Recipes. Order Meals. All in One Place.</h1>
+      <p>Deliciously simple. Welcome to Foodiez.</p>
+    </div>
+  </section>
+
+  <!-- Recipes Section -->
+  <section id="recipes" class="section">
+    <h2>Popular Recipes</h2>
+    <div class="card-grid">
+      <div class="card">
+        <img src="https://source.unsplash.com/400x300/?chicken" alt="Chicken">
+        <h3>Grilled Chicken</h3>
+        <p>Quick and easy grilled chicken for your next meal.</p>
+        <button onclick="saveRecipe('Grilled Chicken')">Save Recipe</button>
+      </div>
+      <div class="card">
+        <img src="https://source.unsplash.com/400x300/?pasta" alt="Pasta">
+        <h3>Creamy Pasta</h3>
+        <p>A rich and creamy Italian pasta dish.</p>
+        <button onclick="saveRecipe('Creamy Pasta')">Save Recipe</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Order Section -->
+  <section id="order" class="section">
+    <h2>Order Meals</h2>
+    <div class="card-grid">
+      <div class="card">
+        <img src="https://source.unsplash.com/400x300/?burger" alt="Burger">
+        <h3>Cheeseburger Combo</h3>
+        <p>Order now and get it delivered hot and fresh!</p>
+        <button onclick="orderMeal('Cheeseburger Combo')">Order Now</button>
+      </div>
+      <div class="card">
+        <img src="https://source.unsplash.com/400x300/?sushi" alt="Sushi">
+        <h3>Fresh Sushi Platter</h3>
+        <p>Fresh, authentic, and delivered to your door.</p>
+        <button onclick="orderMeal('Fresh Sushi Platter')">Order Now</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <p>&copy; 2025 Foodiez. Made with ❤️ for food lovers.</p>
+  </footer>
+
+  <script>
+    function saveRecipe(recipeName) {
+      alert(`${recipeName} has been saved to your favorites!`);
+    }
+
+    function orderMeal(mealName) {
+      alert(`Ordering: ${mealName}. Your meal will arrive shortly!`);
+    }
+  </script>
+</body>
+
+</html>
