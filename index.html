@@ -17,7 +17,9 @@
       <a href="#order">Order</a>
       <a href="#favorites">Favorites</a>
       <a href="#about">About</a>
-      <button onclick="addToCart('Ree\'s Best Easter Dishes')">Add to Cart</button>
+      <!-- <button onclick="addToCart('Ree\'s Best Easter Dishes')">Add to Cart</button> -->
+      <a href="#cart"> Cart</a>
+
     </nav>
     <div class="nav-right">
       <input type="text" placeholder="Search recipes or meals..." />
@@ -69,39 +71,132 @@
   <section id="recipes" class="section">
     <h2>Popular Recipes</h2>
     <div class="card-grid">
+  
       <div class="card">
-        <img src="./images/generative-ai-illustration-fried-chicken-plain-background_479694-15232.avif" alt="Chicken" />
+        <img src="./images/generative-ai-illustration-fried-chicken-plain-background_479694-15232.avif" alt="Grilled Chicken" />
         <h3>Grilled Chicken</h3>
         <p>Quick and easy grilled chicken for your next meal.</p>
-        <button onclick="saveRecipe('Grilled Chicken')">Save Recipe</button>
+        <div class="button-group">
+          <button onclick="saveRecipe('Grilled Chicken')">Save Recipe</button>
+          <button onclick="orderRecipe('Grilled Chicken')">Order Now</button>
+        </div>
       </div>
+  
       <div class="card">
-        <img src="./images/img29.jfif" alt="Pasta" />
+        <img src="./images/img29.jfif" alt="Creamy Pasta" />
         <h3>Creamy Pasta</h3>
         <p>A rich and creamy Italian pasta dish.</p>
-        <button onclick="saveRecipe('Creamy Pasta')">Save Recipe</button>
+        <div class="button-group">
+          <button onclick="saveRecipe('Creamy Pasta')">Save Recipe</button>
+          <button onclick="orderRecipe('Creamy Pasta')">Order Now</button>
+        </div>
       </div>
+  
+      <div class="card">
+        <img src="./images/pizza1.webp" alt="Veggie Pizza" />
+        <h3>Veggie Pizza</h3>
+        <p>Loaded with fresh vegetables and melted cheese.</p>
+        <div class="button-group">
+          <button onclick="saveRecipe('Veggie Pizza')">Save Recipe</button>
+          <button onclick="orderRecipe('Veggie Pizza')">Order Now</button>
+        </div>
+      </div>
+  
+      <div class="card">
+        <img src="./images/specialcurry.jfif" alt="Indian Curry" />
+        <h3>Indian Curry</h3>
+        <p>A spicy and flavorful traditional Indian dish.</p>
+        <div class="button-group">
+          <button onclick="saveRecipe('Indian Curry')">Save Recipe</button>
+          <button onclick="orderRecipe('Indian Curry')">Order Now</button>
+        </div>
+      </div>
+  
+      <div class="card">
+        <img src="./images/sushi1.jfif" alt="Sushi" />
+        <h3>Sushi Platter</h3>
+        <p>Fresh sushi rolls with wasabi and soy sauce.</p>
+        <div class="button-group">
+          <button onclick="saveRecipe('Sushi Platter')">Save Recipe</button>
+          <button onclick="orderRecipe('Sushi Platter')">Order Now</button>
+        </div>
+      </div>
+  
+      <div class="card">
+        <img src="./images/cake.jfif" alt="Chocolate Cake" />
+        <h3>Chocolate Cake</h3>
+        <p>Moist and decadent chocolate layered cake.</p>
+        <div class="button-group">
+          <button onclick="saveRecipe('Chocolate Cake')">Save Recipe</button>
+          <button onclick="orderRecipe('Chocolate Cake')">Order Now</button>
+        </div>
+      </div>
+  
     </div>
   </section>
+  
+  
 
   <!-- Order Section -->
   <section id="order" class="section">
     <h2>Order Meals</h2>
     <div class="card-grid">
+      <!-- Grilled Chicken Wrap -->
       <div class="card">
-        <img src="./images/burger" alt="Burger" />
-        <h3>Cheeseburger Combo</h3>
-        <p>Order now and get it delivered hot and fresh!</p>
-        <button onclick="orderMeal('Cheeseburger Combo')">Order Now</button>
+        <img src="./images/grilled.jfif" alt="Grilled chicken wrap with veggies" />
+        <h3>Grilled Chicken Wrap</h3>
+        <p>Juicy grilled chicken wrapped with fresh veggies.</p>
+        <button onclick="saveRecipe('Grilled Chicken Wrap')">Save Recipe</button>
+        <button onclick="orderMeal('Grilled Chicken Wrap')">Order Now</button>
       </div>
+  
+      <!-- Pad Thai -->
       <div class="card">
-        <img src="./images/sushi" alt="Sushi" />
-        <h3>Fresh Sushi Platter</h3>
-        <p>Fresh, authentic, and delivered to your door.</p>
-        <button onclick="orderMeal('Fresh Sushi Platter')">Order Now</button>
+        <img src="./images/pad_thai.jfif" alt="Authentic Thai stir-fried noodles" />
+        <h3>Pad Thai</h3>
+        <p>Sweet, tangy, and full of flavor. A Thai classic!</p>
+        <button onclick="saveRecipe('Pad Thai')">Save Recipe</button>
+        <button onclick="orderMeal('Pad Thai')">Order Now</button>
+      </div>
+  
+      <!-- Tacos al Pastor -->
+      <div class="card">
+        <img src="./images/Tacos-al-pastor-2.jpg" alt="Tacos al pastor with pineapple and onions" />
+        <h3>Tacos al Pastor</h3>
+        <p>Spicy pork tacos topped with pineapple and cilantro.</p>
+        <button onclick="saveRecipe('Tacos al Pastor')">Save Recipe</button>
+        <button onclick="orderMeal('Tacos al Pastor')">Order Now</button>
+      </div>
+  
+      <!-- Butter Chicken -->
+      <div class="card">
+        <img src="./images/butter_chicken.jfif" alt="Creamy butter chicken with naan" />
+        <h3>Butter Chicken</h3>
+        <p>Rich and creamy Indian curry served with naan or rice.</p>
+        <button onclick="saveRecipe('Butter Chicken')">Save Recipe</button>
+        <button onclick="orderMeal('Butter Chicken')">Order Now</button>
+      </div>
+  
+      <!-- Mediterranean Falafel Bowl -->
+      <div class="card">
+        <img src="./images/bol-de-falafels-a-la-mediterraneenne.jpg" alt="Falafel bowl with hummus and tabbouleh" />
+        <h3>Mediterranean Falafel Bowl</h3>
+        <p>Crispy falafel, hummus, and fresh veggies in a bowl.</p>
+        <button onclick="saveRecipe('Mediterranean Falafel Bowl')">Save Recipe</button>
+        <button onclick="orderMeal('Mediterranean Falafel Bowl')">Order Now</button>
+      </div>
+  
+      <!-- BBQ Ribs -->
+      <div class="card">
+        <img src="./images/bbq_ribs.jfif" alt="BBQ ribs with smoky sauce" />
+        <h3>BBQ Ribs</h3>
+        <p>Slow-cooked ribs glazed with smoky barbecue sauce.</p>
+        <button onclick="saveRecipe('BBQ Ribs')">Save Recipe</button>
+        <button onclick="orderMeal('BBQ Ribs')">Order Now</button>
       </div>
     </div>
   </section>
+  
 
   <section class="recipe-section">
     <h2>Perfect Potatoes</h2>
@@ -168,6 +263,13 @@
       </div>
     </div>
   </section>
+
+<!-- its an cart -->
+  <section id="cart" class="section">
+    <h2>Your Recipe Cart</h2>
+    <ul id="cartList"></ul>
+  </section>
+  
 
   <footer class="site-footer">
     <div class="footer-links">

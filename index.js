@@ -65,3 +65,93 @@ function openModal(type) {
   }
   
   
+  function saveRecipe(button) {
+    const card = button.closest('.card'); // or .recipe-card, depending on your class
+    const recipeName = card.querySelector('p').textContent; // assuming the recipe name is in a <p> tag
+  
+    let cart = JSON.parse(localStorage.getItem('foodiezCart')) || [];
+  
+    if (cart.includes(recipeName)) {
+      alert(`${recipeName} is already saved in your cart.`);
+      return;
+    }
+  
+    cart.push(recipeName);
+    localStorage.setItem('foodiezCart', JSON.stringify(cart));
+    renderCart();
+    alert(`${recipeName} has been saved to your cart!`);
+  }
+  
+
+  function renderCart() {
+    const cart = JSON.parse(localStorage.getItem('foodiezCart')) || [];
+    const cartItems = document.getElementById('cartItems');
+  
+    cartItems.innerHTML = '';
+    if (cart.length === 0) {
+      cartItems.innerHTML = '<li>Your cart is empty.</li>';
+      return;
+    }
+  
+    cart.forEach(item => {
+      const li = document.createElement('li');
+      li.innerHTML = `
+        ${item}
+        <button onclick="removeFromCart('${item}')">Remove</button>
+      `;
+      cartItems.appendChild(li);
+    });
+  }
+  
+  function removeFromCart(recipeName) {
+    let cart = JSON.parse(localStorage.getItem('foodiezCart')) || [];
+    cart = cart.filter(item => item !== recipeName);
+    localStorage.setItem('foodiezCart', JSON.stringify(cart));
+    renderCart();
+  }
+
+  // Array to store cart items
+let recipeCart = [];
+
+// Save recipe and update cart
+function saveRecipe(recipeName) {
+  // Avoid adding duplicates
+  if (recipeCart.includes(recipeName)) {
+    alert(`${recipeName} is already in your cart.`);
+    return;
+  }
+
+  recipeCart.push(recipeName);
+  updateCartUI();
+  alert(`${recipeName} added to your cart!`);
+}
+
+// Remove recipe from cart
+function removeRecipe(index) {
+  recipeCart.splice(index, 1);
+  updateCartUI();
+}
+
+// Update Cart UI
+function updateCartUI() {
+  const cartList = document.getElementById('cartList');
+  cartList.innerHTML = ''; // Clear current list
+
+  recipeCart.forEach((recipe, index) => {
+    const li = document.createElement('li');
+    li.innerHTML = `
+      ${recipe}
+      <button onclick="removeRecipe(${index})" style="margin-left:10px;">Remove</button>
+    `;
+    cartList.appendChild(li);
+  });
+}
+
+function orderRecipe(recipeName) {
+  alert(`Order placed for: ${recipeName}`);
+  // You could later redirect to an order page or open a modal
+  // window.location.href = '/order.html?item=' + encodeURIComponent(recipeName);
+}
+
+
+  
