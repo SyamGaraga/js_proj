@@ -1,248 +1,145 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Foodiez - Discover & Order Food</title>
+  <title>Foodiez Recipes</title>
+  <link rel="stylesheet" href="index.css" />
   <style>
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    }
-
-    body {
-      background-color: #f8f8f8;
-      color: #333;
-    }
-
-    .navbar {
+    .recipe-container {
       display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 1rem 2rem;
-      background-color: #fff;
-      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    }
-
-    .logo {
-      font-size: 1.5rem;
-      font-weight: bold;
-      color: #e4002b;
-    }
-
-    .nav-links a {
-      margin: 0 1rem;
-      text-decoration: none;
-      color: #333;
-      font-weight: 500;
-    }
-
-    .nav-links {
-      flex: 1;
-      display: flex;
+      flex-wrap: wrap;
       justify-content: center;
     }
 
-    .nav-right {
-      display: flex;
-      gap: 0.5rem;
-      align-items: center;
+    .recipe-card {
+      width: 300px;
+      background-color: #fff;
+      border-radius: 8px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      margin: 20px;
+      overflow: hidden;
+      text-align: center;
+      font-family: sans-serif;
     }
 
-    .nav-right input {
-      padding: 0.4rem 0.6rem;
-      border-radius: 4px;
-      border: 1px solid #ccc;
-    }
-
-    .search-btn, .signup-btn {
-      padding: 0.4rem 1rem;
-      border: none;
-      border-radius: 20px;
-      cursor: pointer;
-      font-weight: bold;
-    }
-
-    .search-btn {
-      background-color: #ddd;
-    }
-
-    .signup-btn {
-      background-color: #e4002b;
-      color: #fff;
-    }
-
-    .signup-btn:hover {
-      background-color: #c20025;
-    }
-
-    .hero {
-      position: relative;
-    }
-
-    .hero img {
+    .recipe-card img {
       width: 100%;
-      height: auto;
+      height: 200px;
       object-fit: cover;
-    }
-
-    .hero-text {
-      position: absolute;
-      top: 50%;
-      left: 5%;
-      transform: translateY(-50%);
-      background-color: rgba(255, 255, 255, 0.8);
-      padding: 1rem 2rem;
-      border-radius: 8px;
-    }
-
-    .section {
-      padding: 3rem 2rem;
-    }
-
-    .section h2 {
-      text-align: center;
-      margin-bottom: 2rem;
-    }
-
-    .card-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 1.5rem;
-    }
-
-    .card {
-      background-color: white;
-      padding: 1rem;
-      border-radius: 8px;
-      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-      text-align: center;
-    }
-
-    .card img {
-      width: 100%;
-      border-radius: 8px;
-      margin-bottom: 1rem;
-    }
-
-    .card button {
-      margin-top: 1rem;
-      padding: 0.5rem 1rem;
-      background-color: #e4002b;
-      color: #fff;
-      border: none;
-      border-radius: 20px;
       cursor: pointer;
     }
 
-    .card button:hover {
-      background-color: #c20025;
+    .recipe-card .info {
+      padding: 15px;
     }
 
-    .footer {
-      text-align: center;
-      padding: 1.5rem;
-      background-color: #222;
-      color: #fff;
-      margin-top: 3rem;
+    .recipe-card h3 {
+      margin: 10px 0 5px;
+      font-size: 1.2rem;
+      color: #e4002b;
     }
 
-    @media (max-width: 768px) {
-      .nav-links {
-        display: none;
-      }
-
-      .hero-text {
-        width: 90%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        text-align: center;
-      }
+    .recipe-card p {
+      font-size: 0.95rem;
+      color: #555;
     }
   </style>
 </head>
-
 <body>
-  <!-- Navbar -->
-  <header class="navbar">
+
+
+
+   <!-- Navbar -->
+   <header class="navbar">
     <div class="logo">🍴 Foodiez</div>
     <nav class="nav-links">
-      <a href="#recipes">Recipes</a>
-      <a href="#order">Order</a>
-      <a href="#favorites">Favorites</a>
-      <a href="#about">About</a>
+      <a href="./index.html">Recipes</a>
+      <a href="./index.html">Order</a>
+      <a href="./index.html">Favorites</a>
+      <a href="./index.html">About</a>
+      <!-- <button onclick="addToCart('Ree\'s Best Easter Dishes')">Add to Cart</button> -->
+      <a href="./index.html"> Cart</a>
+
     </nav>
     <div class="nav-right">
-      <input type="text" placeholder="Search recipes or meals...">
+      <input type="text" placeholder="Search recipes or meals..." />
       <button class="search-btn">🔍</button>
-      <button class="signup-btn">Sign Up</button>
+      <button class="login-btn" onclick="openModal('login')">Login</button>
+      <button class="signup-btn" onclick="openModal('signup')">Sign Up</button>
     </div>
   </header>
 
-  <!-- Hero Section -->
-  <section class="hero">
-    <img src="https://source.unsplash.com/1600x600/?food" alt="Delicious food">
-    <div class="hero-text">
-      <h1>Discover Recipes. Order Meals. All in One Place.</h1>
-      <p>Deliciously simple. Welcome to Foodiez.</p>
-    </div>
-  </section>
+  <h1 style="text-align: center;">Explore Delicious Recipes</h1>
 
-  <!-- Recipes Section -->
-  <section id="recipes" class="section">
-    <h2>Popular Recipes</h2>
-    <div class="card-grid">
-      <div class="card">
-        <img src="https://source.unsplash.com/400x300/?chicken" alt="Chicken">
-        <h3>Grilled Chicken</h3>
-        <p>Quick and easy grilled chicken for your next meal.</p>
-        <button onclick="saveRecipe('Grilled Chicken')">Save Recipe</button>
-      </div>
-      <div class="card">
-        <img src="https://source.unsplash.com/400x300/?pasta" alt="Pasta">
-        <h3>Creamy Pasta</h3>
-        <p>A rich and creamy Italian pasta dish.</p>
-        <button onclick="saveRecipe('Creamy Pasta')">Save Recipe</button>
+  <div class="recipe-container">
+
+    <!-- Recipe 1 -->
+    <div class="recipe-card">
+      <a href="recipe-details.html?recipe=spaghetti">
+        <img src="./images/img29.jfif" alt="Spaghetti">
+      </a>
+      <div class="info">
+        <h3>Spaghetti Bolognese</h3>
+        <p>Classic Italian pasta with rich meat sauce and herbs.</p>
       </div>
     </div>
-  </section>
 
-  <!-- Order Section -->
-  <section id="order" class="section">
-    <h2>Order Meals</h2>
-    <div class="card-grid">
-      <div class="card">
-        <img src="https://source.unsplash.com/400x300/?burger" alt="Burger">
-        <h3>Cheeseburger Combo</h3>
-        <p>Order now and get it delivered hot and fresh!</p>
-        <button onclick="orderMeal('Cheeseburger Combo')">Order Now</button>
-      </div>
-      <div class="card">
-        <img src="https://source.unsplash.com/400x300/?sushi" alt="Sushi">
-        <h3>Fresh Sushi Platter</h3>
-        <p>Fresh, authentic, and delivered to your door.</p>
-        <button onclick="orderMeal('Fresh Sushi Platter')">Order Now</button>
+    <!-- Recipe 2 -->
+    <div class="recipe-card">
+      <a href="recipe-details.html?recipe=pizza">
+        <img src="./images/pizza1.webp " alt="Pizza">
+      </a>
+      <div class="info">
+        <h3>Cheesy Pizza</h3>
+        <p>Hot, cheesy and crispy – straight from the oven.</p>
       </div>
     </div>
-  </section>
 
-  <!-- Footer -->
-  <footer class="footer">
-    <p>&copy; 2025 Foodiez. Made with ❤️ for food lovers.</p>
-  </footer>
+    <!-- Recipe 3 -->
+    <div class="recipe-card">
+      <a href="recipe-details.html?recipe=salad">
+        <img src="./images/img5(1).webp" alt="Salad">
+      </a>
+      <div class="info">
+        <h3>Fresh Garden Salad</h3>
+        <p>A healthy mix of greens, veggies, and vinaigrette.</p>
+      </div>
+    </div>
 
-  <script>
-    function saveRecipe(recipeName) {
-      alert(`${recipeName} has been saved to your favorites!`);
-    }
 
-    function orderMeal(mealName) {
-      alert(`Ordering: ${mealName}. Your meal will arrive shortly!`);
-    }
-  </script>
+    <div class="recipe-card">
+      <a href="recipe-details.html?recipe=spaghetti">
+        <img src="./images/spaghetti-bolognese-36-720x720.jpg" alt="Spaghetti">
+      </a>
+      <div class="info">
+        <h3>Spaghetti Bolognese</h3>
+        <p>Classic Italian pasta with rich meat sauce and herbs.</p>
+      </div>
+    </div>
+
+    <!-- Recipe 2 -->
+    <div class="recipe-card">
+      <a href="recipe-details.html?recipe=pizza">
+        <img src="./images/cheese-pizza-500x500.webp " alt="Pizza">
+      </a>
+      <div class="info">
+        <h3>Cheesy Pizza</h3>
+        <p>Hot, cheesy and crispy – straight from the oven.</p>
+      </div>
+    </div>
+
+    <!-- Recipe 3 -->
+    <div class="recipe-card">
+      <a href="recipe-details.html?recipe=salad">
+        <img src="./images/Garden-Salad_47-SQ.webp" alt="Salad">
+      </a>
+      <div class="info">
+        <h3>Fresh Garden Salad</h3>
+        <p>A healthy mix of greens, veggies, and vinaigrette.</p>
+      </div>
+    </div>
+
+  </div>
+
 </body>
-
 </html>
