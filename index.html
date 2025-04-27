@@ -13,20 +13,29 @@
   <header class="navbar">
     <div class="logo">🍴 Foodiez</div>
     <nav class="nav-links">
-      <a href="#recipes">Recipes</a>
+      <a href="https://www.indianhealthyrecipes.com/">Recipes</a>
       <a href="#order">Order</a>
-      <a href="#favorites">Favorites</a>
+      <a href="http://127.0.0.1:3000/one.html">Favorites</a>
       <a href="#about">About</a>
       <!-- <button onclick="addToCart('Ree\'s Best Easter Dishes')">Add to Cart</button> -->
       <a href="#cart"> Cart</a>
 
     </nav>
     <div class="nav-right">
-      <input type="text" placeholder="Search recipes or meals..." />
-      <button class="search-btn">🔍</button>
-      <button class="login-btn" onclick="openModal('login')">Login</button>
-      <button class="signup-btn" onclick="openModal('signup')">Sign Up</button>
+      <!-- <input type="text" placeholder="Search recipes or meals..." />
+      <button class="search-btn">🔍</button> -->
+      <input type="text" id="searchInput" placeholder="Search recipes or meals..." />
+<button class="search-btn" onclick="searchItems()">🔍</button>
+
+      
+      <div id="user-container">
+        <button id="loginButton" onclick="openModal('login')">Login</button>
+        <button id="signupButton" onclick="openModal('signup')">Sign Up</button>
+        <span id="userName" style="display:none;"></span> <!-- Display Name after login -->
+        <button id="logoutButton" onclick="logout()" style="display:none;">Sign Out</button> <!-- Sign Out Button -->
+      </div>
     </div>
+    
   </header>
 
   
@@ -360,7 +369,12 @@
   </footer>
   
   
+  <div id="siteContent" style="display:none;">
+    <!-- Your existing content here, like recipes, cart, etc. -->
+  </div>
 
+
+ 
 
   <script src="index.js"></script>
 </body>

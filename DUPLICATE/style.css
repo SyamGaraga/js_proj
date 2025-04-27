@@ -1,0 +1,120 @@
+/* style.css */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif;
+  }
+  
+  body {
+    line-height: 1.6;
+    background-color: #f9f9f9;
+  }
+  
+  /* Navbar */
+  .navbar {
+    display: flex;
+    justify-content: space-between;
+    padding: 1rem 2rem;
+    background-color: #ff6347;
+    color: white;
+  }
+  
+  .nav-links a, .nav-right button {
+    margin-left: 1rem;
+    text-decoration: none;
+    color: white;
+  }
+  
+  .search-btn, .signup-btn {
+    padding: 5px 10px;
+    border: none;
+    background-color: white;
+    color: #ff6347;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  /* Hero */
+  .hero {
+    position: relative;
+    text-align: center;
+  }
+  
+  .hero img {
+    width: 100%;
+    height: auto;
+  }
+  
+  .hero-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+  }
+  
+  /* Recipe Section */
+  .recipe-section {
+    padding: 2rem;
+  }
+  
+  .recipe-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+  }
+  
+  /* Trending Section */
+  .trending-section {
+    padding: 2rem;
+    background: #ffe4e1;
+  }
+  
+  /* TV Inspired Section */
+  .tv-inspired-section {
+    padding: 2rem;
+  }
+  
+  /* Magazine Subscription */
+  .magazine-subscription {
+    padding: 2rem;
+    background: #ffe4b5;
+  }
+  
+  /* Footer */
+  .site-footer {
+    background-color: #333;
+    color: white;
+    padding: 1rem 2rem;
+    text-align: center;
+  }
+  
+  .footer-links a {
+    color: white;
+    margin: 0 10px;
+  }
+  
+  /* Modals */
+  .modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.5);
+  }
+  
+  .modal-content {
+    background-color: #fff;
+    margin: 10% auto;
+    padding: 20px;
+    border-radius: 8px;
+    width: 300px;
+    text-align: center;
+  }
+  

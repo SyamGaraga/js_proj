@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Foodiez</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="logo">Foodiez</div>
+        <div class="nav-links">
+            <a href="#recipes">Recipes</a>
+            <a href="#trending">Trending</a>
+            <a href="#tv-inspired">TV Inspired</a>
+            <a href="#subscribe">Subscribe</a>
+        </div>
+        <div class="nav-right">
+            <input type="text" placeholder="Search">
+            <button class="search-btn">Search</button>
+            <button class="signup-btn" id="openSignup">Sign Up</button>
+            <button class="signup-btn" id="logoutBtn" style="display:none;">Logout</button>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <img src="images/hero.jpg" alt="Delicious Food">
+        <div class="hero-text">
+            <h1>Discover Your Next Meal</h1>
+            <p>Fresh, trending, and TV-inspired recipes await!</p>
+        </div>
+    </section>
+
+    <!-- Recipe Section -->
+    <section class="recipe-section" id="recipes">
+        <h2>Recipes</h2>
+        <div class="recipe-grid">
+            <!-- Recipe cards will be added dynamically -->
+        </div>
+    </section>
+
+    <!-- Trending Section -->
+    <section class="trending-section" id="trending">
+        <div class="trending-container">
+            <div class="trending-img">
+                <img src="images/trending.jpg" alt="Trending Dish">
+            </div>
+            <div class="trending-content">
+                <small>Trending</small>
+                <h2>Explore The Latest Food Trends</h2>
+            </div>
+        </div>
+    </section>
+
+    <!-- TV Inspired Section -->
+    <section class="tv-inspired-section" id="tv-inspired">
+        <h2>TV Inspired</h2>
+        <div class="tv-cards">
+            <!-- TV inspired cards -->
+        </div>
+    </section>
+
+    <!-- Magazine Subscription Section -->
+    <section class="magazine-subscription" id="subscribe">
+        <div class="magazine-container">
+            <img src="images/magazine.jpg" alt="Magazine">
+            <div class="magazine-text">
+                <h5>Subscribe</h5>
+                <h2>Get Our Monthly Food Magazine</h2>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="footer-links">
+            <a href="#">Privacy Policy</a>
+            <a href="#">Terms of Service</a>
+            <a href="#">Contact Us</a>
+        </div>
+        <div class="footer-bottom">
+            &copy; 2025 Foodiez. All Rights Reserved.
+        </div>
+    </footer>
+
+    <!-- Modals -->
+    <div id="signupModal" class="modal">
+        <div class="modal-content">
+            <span class="close" id="closeSignup">&times;</span>
+            <h2>Sign Up</h2>
+            <input type="text" id="signupUsername" placeholder="Username">
+            <input type="password" id="signupPassword" placeholder="Password">
+            <button id="signupSubmit">Sign Up</button>
+        </div>
+    </div>
+
+    <div id="loginModal" class="modal">
+        <div class="modal-content">
+            <span class="close" id="closeLogin">&times;</span>
+            <h2>Login</h2>
+            <input type="text" id="loginUsername" placeholder="Username">
+            <input type="password" id="loginPassword" placeholder="Password">
+            <button id="loginSubmit">Login</button>
+        </div>
+    </div>
+
+    <script src="js/script.js"></script>
+</body>
+</html>

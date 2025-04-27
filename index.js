@@ -141,3 +141,46 @@ function navigateToRecipe(recipeName) {
   window.location.href = `recipe-details.html?recipe=${encodeURIComponent(recipeName)}`;
 }
 
+window.onload = () => {
+  const user = JSON.parse(localStorage.getItem('loggedInUser'));
+  if (user) updateAuthUI(user);
+
+  updateCartUI();
+  updateCartCount();
+};
+
+function updateAuthUI(user) {
+  document.querySelector('.auth-buttons').innerHTML = `
+    <span>Welcome, <strong>${user.name}</strong></span>
+    <button onclick="logout()">Logout</button>
+  `;
+}
+
+
+
+// Function to handle search
+function searchItems() {
+  const searchQuery = document.getElementById('searchInput').value.toLowerCase(); // Get the search query and convert it to lowercase
+  const recipeCards = document.querySelectorAll('.card'); // Get all recipe cards
+  const cardTitles = document.querySelectorAll('.card h3'); // Get all the recipe titles
+  const cardDescriptions = document.querySelectorAll('.card p'); // Get all the recipe descriptions
+
+  // Loop through all the recipe cards
+  recipeCards.forEach((card, index) => {
+    const title = cardTitles[index].textContent.toLowerCase(); // Get the title of the current card
+    const description = cardDescriptions[index].textContent.toLowerCase(); // Get the description of the current card
+
+    // Check if either the title or description includes the search query
+    if (title.includes(searchQuery) || description.includes(searchQuery)) {
+      card.style.display = 'block'; // Show the card if it matches the search query
+    } else {
+      card.style.display = 'none'; // Hide the card if it doesn't match the search query
+    }
+  });
+}
+
+
+
+
+
+
